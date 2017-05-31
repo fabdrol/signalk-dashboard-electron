@@ -1,7 +1,7 @@
 {
   "name": "signalk-dashboard",
   "version": "0.1.4",
-  "description": "Signal K dashboard for the X-Miles",
+  "description": "Signal K dashboard wrapped in an electron app",
   "main": "src/index.js",
   "scripts": {
     "start": "electron ./src/index.js",

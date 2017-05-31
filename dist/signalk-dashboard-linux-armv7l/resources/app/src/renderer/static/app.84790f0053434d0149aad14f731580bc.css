@@ -1,0 +1,322 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body,
+main {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 100%;
+  font-family: 'Karla', 'Helvetica Neue', Helvetica, sans-serif;
+  background-color: #2c3e50;
+  color: #fff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  display: block;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2c3e50;
+  text-align: center;
+  border-bottom: 1px solid rgba(109,188,219,0.5);
+  z-index: 9999;
+}
+.header > span {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: #fc4349;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.header > span.header-utc {
+  position: absolute;
+  left: 1em;
+  top: 0;
+  color: rgba(255,255,255,0.8);
+  font-weight: normal;
+  font-size: 0.9em;
+}
+.header > span.header-time {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  color: rgba(255,255,255,0.8);
+  font-weight: normal;
+  font-size: 0.9em;
+}
+.is-loading,
+.is-disconnected {
+  display: block;
+  padding: 4em 2em 2em 2em;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+.dashboard {
+  display: block;
+  padding: 4em 2em 2em 2em;
+  overflow: hidden;
+}
+.dashboard .widget {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-radius: 5px;
+  border: 1px solid #6dbcdb;
+  height: 150px;
+  box-shadow: 0 3px 0 rgba(109,188,219,0.8);
+  background-color: #304457;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+}
+.dashboard .widget .widget-background {
+  display: block;
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  z-index: 1;
+  opacity: 0.8;
+}
+.dashboard .widget .widget-contents {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75em;
+  z-index: 2;
+}
+.dashboard .widget h3.title {
+  color: #fc4349;
+  font-size: 0.9em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.dashboard .widget h1.value {
+  font-size: 4.5em;
+  text-align: center;
+}
+.dashboard .widget h2.value {
+  font-size: 2.5em;
+  text-align: center;
+}
+.dashboard .widget .stale {
+  color: #fc4349;
+}
+.dashboard .widget .combined-values {
+  display: block;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  margin-top: 0.5em;
+}
+.dashboard .widget .combined-values h1.value-right,
+.dashboard .widget .combined-values h1.value-left {
+  display: block;
+  width: 50%;
+  text-align: center;
+  float: right;
+  font-size: 4em;
+}
+.dashboard .widget .combined-values h1.value-left {
+  float: left;
+}
+.dashboard .widget .combined-values h1 span {
+  display: block;
+  font-size: 0.2em;
+  color: #fc4349;
+  text-transform: uppercase;
+}
+pre {
+  display: block;
+  padding: 2em;
+  margin: 1em;
+  background-color: #d7dadb;
+  color: #2c3e50;
+  font-size: 0.85em;
+  border-radius: 5px;
+}
+.fade-transition {
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
+}
+.fade-enter {
+  display: block;
+  opacity: 0;
+}
+.fade-leave {
+  opacity: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .dashboard .widget {
+    width: 47%;
+    height: 125px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    float: left;
+  }
+  .dashboard .widget h3.title {
+    font-size: 0.9em;
+  }
+  .dashboard .widget h1.value {
+    font-size: 4.5em;
+  }
+  .dashboard .widget h2.value {
+    font-size: 2.25em;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .dashboard .widget {
+    width: 47%;
+    height: 160px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 2em;
+    float: left;
+  }
+  .dashboard .widget h3.title {
+    font-size: 0.9em;
+  }
+  .dashboard .widget h1.value {
+    font-size: 4.5em;
+  }
+  .dashboard .widget h2.value {
+    font-size: 2.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .dashboard .widget {
+    width: 30%;
+    height: 150px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 2em;
+    float: left;
+  }
+  .dashboard .widget h3.title {
+    font-size: 0.9em;
+  }
+  .dashboard .widget h1.value {
+    font-size: 4.5em;
+  }
+  .dashboard .widget h2.value {
+    font-size: 2.25em;
+  }
+}.form-button {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 47px;
+  border-radius: 5px;
+  margin: 2em 0;
+  text-transform: uppercase;
+  background-color: #fc4349;
+  border: 1px solid #dc040b;
+  border-bottom-width: 4px;
+  color: #fff;
+}
+.form-button.form-button-white {
+  background-color: #fff;
+  border-color: #b3b3b3;
+  color: #fc4349;
+}
+.form-button:active {
+  border-bottom-width: 1px;
+  line-height: 50px;
+}
+.form-group {
+  display: block;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.form-group label {
+  display: block;
+  font-weight: normal;
+  font-size: 0.9em;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fc4349;
+}
+.form-group .form-input {
+  display: inline-block;
+  width: 30%;
+  height: 70px;
+  padding: 0.5em;
+  font-size: 1.5em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}.overlay-background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(44,62,80,0.8);
+  padding: 2em;
+  z-index: 9999999;
+}
+.overlay-background .overlay-wrapper {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.overlay-background .overlay-close {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fc4349;
+  font-size: 3em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .overlay-background .overlay-wrapper {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .overlay-background .overlay-wrapper {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=app.84790f0053434d0149aad14f731580bc.css.map*/

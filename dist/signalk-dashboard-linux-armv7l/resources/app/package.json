@@ -1,0 +1,35 @@
+{
+  "name": "signalk-dashboard",
+  "version": "0.1.4",
+  "description": "Signal K dashboard for the X-Miles",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron ./src/index.js",
+    "clean": "rimraf ./dist/*",
+    "build:linux64": "electron-packager . signalk-dashboard --platform linux --arch x64 --out ./dist/ --ignore=node_modules",
+    "build:linux32": "electron-packager . signalk-dashboard --platform linux --arch ia32 --out ./dist/ --ignore=node_modules",
+    "build:armv7l": "electron-packager . signalk-dashboard --platform linux --arch armv7l --out ./dist/ --ignore=node_modules",
+    "build:osx": "electron-packager . signalk-dashboard --icon ./resources/Icon.icns --platform darwin --arch x64 --out ./dist/ --ignore=node_modules",
+    "deb64": "electron-installer-debian --src ./dist/signalk-dashboard-linux-x64/ --dest dist/installers/ --arch amd64",
+    "deb32": "electron-installer-debian --src ./dist/signalk-dashboard-linux-ia32/ --dest dist/installers/ --arch ia32",
+    "deb-arm": "electron-installer-debian --src ./dist/signalk-dashboard-linux-armv7l/ --dest dist/installers/ --arch armv7l"
+  },
+  "keywords": [
+    "signal k",
+    "signal",
+    "k",
+    "signalk",
+    "nmea",
+    "nmea0183",
+    "n2k",
+    "nmea2000",
+    "electron"
+  ],
+  "author": "Fabian Tollenaar <fabian@decipher.industries> (https://decipher.industries)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "electron-packager": "^8.7.0",
+    "electron-prebuilt": "^1.4.13",
+    "rimraf": "^2.6.1"
+  }
+}
