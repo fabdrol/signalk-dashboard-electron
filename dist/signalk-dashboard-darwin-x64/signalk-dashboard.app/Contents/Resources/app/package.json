@@ -1,21 +1,21 @@
 {
   "name": "signalk-dashboard",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Signal K dashboard wrapped in an electron app",
   "main": "src/index.js",
   "scripts": {
     "start": "electron ./src/index.js",
-    "clean": "rimraf ./dist/*",
+    "clean": "rimraf ./dist/*; mkdir -p ./dist/releases/",
     "tag": "git tag -a $npm_package_version -m 'New dist release';",
     "commit": "git add --all .; git commit -am 'Built release version';",
     "dist": "npm run clean; npm run build:linux64; npm run build:linux32; npm run build:armv7l; npm run build:osx; npm run deb64; npm run deb32; npm run deb-arm; npm run commit; npm run tag;",
     "build:linux64": "electron-packager . signalk-dashboard --platform linux --arch x64 --out ./dist/ --ignore=node_modules",
     "build:linux32": "electron-packager . signalk-dashboard --platform linux --arch ia32 --out ./dist/ --ignore=node_modules",
     "build:armv7l": "electron-packager . signalk-dashboard --platform linux --arch armv7l --out ./dist/ --ignore=node_modules",
-    "build:osx": "electron-packager . signalk-dashboard --icon ./resources/Icon.icns --platform darwin --arch x64 --out ./dist/ --ignore=node_modules",
-    "deb64": "electron-installer-debian --src ./dist/signalk-dashboard-linux-x64/ --dest dist/installers/ --arch amd64",
-    "deb32": "electron-installer-debian --src ./dist/signalk-dashboard-linux-ia32/ --dest dist/installers/ --arch ia32",
-    "deb-arm": "electron-installer-debian --src ./dist/signalk-dashboard-linux-armv7l/ --dest dist/installers/ --arch armv7l"
+    "build:osx": "electron-packager . signalk-dashboard --icon ./resources/Icon.icns --platform darwin --arch x64 --out ./dist/ --ignore=node_modules; cp -R ./dist/signalk-dashboard-darwin-x64/signalk-dashboard.app ./dist/releases/",
+    "deb64": "electron-installer-debian --src ./dist/signalk-dashboard-linux-x64/ --dest dist/releases/ --arch amd64",
+    "deb32": "electron-installer-debian --src ./dist/signalk-dashboard-linux-ia32/ --dest dist/releases/ --arch ia32",
+    "deb-arm": "electron-installer-debian --src ./dist/signalk-dashboard-linux-armv7l/ --dest dist/releases/ --arch armv7l"
   },
   "keywords": [
     "signal k",
