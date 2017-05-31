@@ -1,12 +1,14 @@
 {
   "name": "signalk-dashboard",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Signal K dashboard wrapped in an electron app",
   "main": "src/index.js",
   "scripts": {
     "start": "electron ./src/index.js",
     "clean": "rimraf ./dist/*",
-    "dist": "npm run clean; npm run build:linux64; npm run build:linux32; npm run build:armv7l; npm run build:osx; npm run deb64; npm run deb32; npm run deb-arm;",
+    "tag": "git tag -a $npm_package_version -m 'New dist release';",
+    "commit": "git add --all .; git commit -am 'Built release version';",
+    "dist": "npm run clean; npm run build:linux64; npm run build:linux32; npm run build:armv7l; npm run build:osx; npm run deb64; npm run deb32; npm run deb-arm; npm run commit; npm run tag;",
     "build:linux64": "electron-packager . signalk-dashboard --platform linux --arch x64 --out ./dist/ --ignore=node_modules",
     "build:linux32": "electron-packager . signalk-dashboard --platform linux --arch ia32 --out ./dist/ --ignore=node_modules",
     "build:armv7l": "electron-packager . signalk-dashboard --platform linux --arch armv7l --out ./dist/ --ignore=node_modules",
