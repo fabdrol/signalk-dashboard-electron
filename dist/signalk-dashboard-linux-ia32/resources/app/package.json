@@ -1,11 +1,12 @@
 {
   "name": "signalk-dashboard",
-  "version": "0.1.4",
-  "description": "Signal K dashboard for the X-Miles",
+  "version": "0.1.6",
+  "description": "Signal K dashboard wrapped in an electron app",
   "main": "src/index.js",
   "scripts": {
     "start": "electron ./src/index.js",
     "clean": "rimraf ./dist/*",
+    "dist": "npm run clean; npm run build:linux64; npm run build:linux32; npm run build:armv7l; npm run build:osx; npm run deb64; npm run deb32; npm run deb-arm;",
     "build:linux64": "electron-packager . signalk-dashboard --platform linux --arch x64 --out ./dist/ --ignore=node_modules",
     "build:linux32": "electron-packager . signalk-dashboard --platform linux --arch ia32 --out ./dist/ --ignore=node_modules",
     "build:armv7l": "electron-packager . signalk-dashboard --platform linux --arch armv7l --out ./dist/ --ignore=node_modules",

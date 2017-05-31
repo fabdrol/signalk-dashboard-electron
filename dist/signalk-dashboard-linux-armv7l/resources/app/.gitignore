@@ -3,7 +3,6 @@
 .tags*
 /.idea/
 /build/
-/dist/
 /external_binaries/
 /out/
 /vendor/download/
