@@ -23,6 +23,9 @@ const BrowserWindow = electron.BrowserWindow
 let mainScreen = null
 let mainWindow = null
 
+app.commandLine.appendSwitch('remote-debugging-port', '8315')
+app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+
 function createWindow() {
   if (mainWindow !== null) {
     return
